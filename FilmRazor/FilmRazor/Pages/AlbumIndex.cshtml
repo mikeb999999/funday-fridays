@@ -1,0 +1,37 @@
+﻿@page
+@model FilmRazor.Pages.AlbumIndexModel
+
+<h1>Albums v0</h1>
+
+@* ref https://docs.microsoft.com/en-us/aspnet/core/tutorials/razor-pages/page?view=aspnetcore-3.0&tabs=visual-studio*@
+
+<table>
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Albums[0].strArtist)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Albums[0].strAlbum)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Albums)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.strArtist)
+                </td>
+                <td>
+                    @Html.DisplayFor(x => item.strAlbum)
+                </td>
+                <td>
+                    <a asp-page="./Details" asp-route-id="@item.strAlbum">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
