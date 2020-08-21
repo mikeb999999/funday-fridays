@@ -7,7 +7,9 @@ namespace FilmRazor.Models
 {
     public class Album
     {
+        public int intId { get; set; }
         public string strAlbum { get; set; }
         public string strArtist { get; set; }
+        public string strDescription { get; set; }
     }
 }

@@ -14,36 +14,14 @@ namespace FilmRazor.Services
 {
     public class NumberService : INumberService
     {
-       /* static*/ HttpClient _client = new HttpClient();
+        HttpClient _client = new HttpClient();
         List<Number> Numbers =  new List<Number>();
-        /// <summary>
-        /// (1125) Tidy up of code from (1022) which was from O1014-Simple.Consume.API.csproj...
-        ///
-        /// TODO use other JSON libraries.... NewtonSoft is from nuget.
-        /// </summary>
-      //  public List<Number> GetNumbers()
-                    public async Task<List<Number>> GetNumbers()
-        {
-             // Run it async!
-       //     for (int i = 0; i < 5; i++)
-        //    {
-              //####### ?????? RunAsync().GetAwaiter(); //.GetResult();
-                                         //  }
 
+        public async Task<List<Number>> GetNumbers()
+        {
             await RunAsync();
 
             return Numbers;
-            //return new List<Number>()
-            //{
-            //    new Number()
-            //    {
-            //        text = "1, Freddy Fox"
-            //    },
-            //    new Number()
-            //    {
-            //        text = "2, Kylie Koala",
-            //    }
-            //};
         }
 
         /// <summary>
@@ -58,13 +36,11 @@ namespace FilmRazor.Services
 
             try
             {
-                // Get a number from the API
+                // In lieu of getting a number from the API
                 var id = new Random().Next(0, 100); // .net get random number between 1 and 100
                 uri = new Uri("http://numbersapi.com/" + id + "?json");
 
                 //
-                //// response = await client.GetAsync(uri.PathAndQuery);   //takes a string....
-                //  response = await client.GetAsync(uri.PathAndQuery);
                 response = await _client.GetAsync(uri);
 
                 if (response.IsSuccessStatusCode)
@@ -72,13 +48,10 @@ namespace FilmRazor.Services
                     number = await getNumberDTOFromResponse(response);
 
                     Numbers.Add(number);
-
-                //    Console.WriteLine(number.text);
                 }
-            }
 
-            catch //(/*Exception ex*/)
-            { throw; /* Console.WriteLine(ex.ToString()); */ }
+            }
+            catch { throw; }
         }
 
          async Task<Number> getNumberDTOFromResponse(HttpResponseMessage response)
@@ -103,9 +76,7 @@ namespace FilmRazor.Services
 
                 return nu;
             }
-            catch 
-            { throw;  }
+            catch { throw;}
         }
-
     }
 }

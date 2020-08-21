@@ -14,13 +14,17 @@ namespace FilmRazor.Services
             {
                 new Album()
                 {
+                    intId = 1,
                     strAlbum = "Album1",
-                    strArtist = "Artist1"
+                    strArtist = "Artist1",
+                    strDescription= "Desc1"
                 },
                 new Album()
                 {
+                    intId =2,
                     strAlbum = "Album222222222222222222222222222222222222222222",
-                    strArtist = "Artist1"
+                    strArtist = "Artist1",
+                    strDescription = "Desc2"
                 }
             };
         }

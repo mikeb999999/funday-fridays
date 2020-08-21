@@ -1,7 +1,7 @@
 ﻿@page
 @model FilmRazor.Pages.AlbumIndexModel
 
-<h1>Albums v0</h1>
+<h1>Albums v1</h1>
 
 @* ref https://docs.microsoft.com/en-us/aspnet/core/tutorials/razor-pages/page?view=aspnetcore-3.0&tabs=visual-studio*@
 
@@ -28,7 +28,7 @@
                     @Html.DisplayFor(x => item.strAlbum)
                 </td>
                 <td>
-                    <a asp-page="./Details" asp-route-id="@item.strAlbum">Details</a>
+                    <a asp-page="./AlbumDetails" asp-route-id="@item.intId">Details</a>
                 </td>
             </tr>
         }
