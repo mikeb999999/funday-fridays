@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using FilmRazor.Models;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Newtonsoft.Json;
 
 namespace FilmRazor.Services
@@ -14,10 +15,19 @@ namespace FilmRazor.Services
         readonly HttpClient _client = new HttpClient();
         //List<Album> Albums = new List<Album>();
         Albums Albums = new Albums { album = new List<Album>() };
+        static Albums AlbumsStatic;
        // Album[] Albums = null;
 
+        /// <summary>
+        /// Note this is temporary until using DI
+        /// </summary>
+        public static async Task<Albums> GetAlbumsStatic()
+        {
+            return AlbumsStatic;
+        }
+
         //  public async Task<List<Album>> GetAlbums()
-       // public async Task<Album[]> GetAlbums()
+        // public async Task<Album[]> GetAlbums()
         public async Task<Albums> GetAlbums()
         {
 
@@ -36,6 +46,9 @@ namespace FilmRazor.Services
                 //Album album = await getAlbumDTOFromResponse(response);
 
                 //Albums.Add(album);
+
+                // TODO - use DI!
+                AlbumsStatic = Albums;
             }
 
             return Albums;

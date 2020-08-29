@@ -17,9 +17,10 @@ namespace FilmRazor.Pages
         public Album Album { get; private set; }
         public async void OnGet(string id)
         {
-            var albumService = new AlbumService();   // N.B.  need to inject existing service / use singleton for now
+            //  var albumService = new AlbumService();   // N.B.  need to inject existing service / use singleton for now
 
-            Albums = await albumService.GetAlbums();
+            // XXX   Albums = await new AlbumService().GetAlbumsStatic();
+            Albums = await   AlbumService.GetAlbumsStatic();
 
             //   Album = Albums.FirstOrDefault<Album>(x => x.idAlbum == id);
             //   Album = Albums.albums.FirstOrDefault<Album>(x => x.idAlbum == id);
