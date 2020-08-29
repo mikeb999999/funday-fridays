@@ -11,9 +11,7 @@ namespace FilmRazor.Pages
 {
     public class AlbumIndexModel : PageModel
     {
-      // public Album[] Albums { get; set; }
        public Albums Albums { get; set; }
-       // public List<Album> Albums { get; set; }
 
         public async Task<IActionResult> OnGetAsync()
         {
@@ -21,12 +19,5 @@ namespace FilmRazor.Pages
             Albums = await albumService.GetAlbums();
             return Page();
         }
-
-        //public void OnGet()
-        //{
-        //    var albumService = new AlbumService();
-
-        //    Albums=albumService.GetAlbums();
-        //}
     }
 }
