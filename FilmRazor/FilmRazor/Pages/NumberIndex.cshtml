@@ -1,0 +1,31 @@
+﻿@page
+@model FilmRazor.Pages.NumberIndexModel
+
+<h1>Albums v1! i.e. Numbers from a Web API 1st go at wiring it together</h1>
+
+@* ref https://docs.microsoft.com/en-us/aspnet/core/tutorials/razor-pages/page?view=aspnetcore-3.0&tabs=visual-studio*@
+
+<table>
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Numbers[0].text)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Numbers)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.text)
+                </td>
+                <td>
+                    <a asp-page="./Details" asp-route-id="@item.text">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
