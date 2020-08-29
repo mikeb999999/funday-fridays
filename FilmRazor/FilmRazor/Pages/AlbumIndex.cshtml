@@ -9,16 +9,16 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Albums[0].strArtist)
+                @Html.DisplayNameFor(model => model.Albums.album[0].strArtist)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Albums[0].strAlbum)
+                @Html.DisplayNameFor(model => model.Albums.album[0].strAlbum)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.Albums)
+        @foreach (var item in Model.Albums.album)
         {
             <tr>
                 <td>
@@ -28,7 +28,7 @@
                     @Html.DisplayFor(x => item.strAlbum)
                 </td>
                 <td>
-                    <a asp-page="./AlbumDetails" asp-route-id="@item.intId">Details</a>
+                    <a asp-page="./AlbumDetails" asp-route-id="@item.idAlbum">Details</a>
                 </td>
             </tr>
         }

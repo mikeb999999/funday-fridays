@@ -11,12 +11,21 @@ namespace FilmRazor.Pages
 {
     public class AlbumDetailsModel : PageModel
     {
+        //   public Album[] Albums { get; set; }
+        public Albums Albums { get; set; }
+        //public List<Album> Albums { get; set; }
         public Album Album { get; private set; }
-        public void OnGet(int id)
+        public async void OnGet(string id)
         {
-            var albumService = new AlbumService();
+            var albumService = new AlbumService();   // N.B.  need to inject existing service / use singleton for now
 
-             Album = albumService.GetAlbums().FirstOrDefault(x => x.intId == id);
+            Albums = await albumService.GetAlbums();
+
+            //   Album = Albums.FirstOrDefault<Album>(x => x.idAlbum == id);
+            //   Album = Albums.albums.FirstOrDefault<Album>(x => x.idAlbum == id);
+            Album = Albums.album.FirstOrDefault<Album>(x => x.idAlbum == id);
+            //  Album = Albums.FirstOrDefault<Album>(x => x.idAlbum == id); // intId == id);
+            // Album = await albumService.GetAlbums().FirstOrDefault(x => x.intId == id);
         }
     }
 }

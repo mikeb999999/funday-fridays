@@ -40,7 +40,7 @@ namespace FilmRazor.Services
                 var id = new Random().Next(0, 100); // .net get random number between 1 and 100
                 uri = new Uri("http://numbersapi.com/" + id + "?json");
 
-                //
+                // Get response for the URI
                 response = await _client.GetAsync(uri);
 
                 if (response.IsSuccessStatusCode)

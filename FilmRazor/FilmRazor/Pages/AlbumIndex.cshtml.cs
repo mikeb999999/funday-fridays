@@ -11,12 +11,22 @@ namespace FilmRazor.Pages
 {
     public class AlbumIndexModel : PageModel
     {
-        public List<Album> Albums { get; set; }
-        public void OnGet()
+      // public Album[] Albums { get; set; }
+       public Albums Albums { get; set; }
+       // public List<Album> Albums { get; set; }
+
+        public async Task<IActionResult> OnGetAsync()
         {
             var albumService = new AlbumService();
-
-            Albums=albumService.GetAlbums();
+            Albums = await albumService.GetAlbums();
+            return Page();
         }
+
+        //public void OnGet()
+        //{
+        //    var albumService = new AlbumService();
+
+        //    Albums=albumService.GetAlbums();
+        //}
     }
 }
