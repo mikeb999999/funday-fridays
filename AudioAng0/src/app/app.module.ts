@@ -6,10 +6,13 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
+import { AlbumListComponent } from './albums/album-list-component';
+
 //The @NgModule decorator - contains arrays - defines this class as an angular module
 @NgModule({
   declarations: [
-    AppComponent   /* all external components */
+    AppComponent,  /* all external components */
+    AlbumListComponent /* 'aa-albums' is contained in Angular component, part of this module.. */
   ],
   imports: [
     BrowserModule   /*s.t. app runs correctly in the browser */
