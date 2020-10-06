@@ -4,22 +4,23 @@ import { Component, OnInit } from '@angular/core';
   selector: 'aa-albums',
   templateUrl: './album-list-component.html'
 })
+// There must be an import & a declaration for this class in app.module.ts 
 export class AlbumListComponent {
-  pageTitle = 'Album List';
+  pageTitle: string = 'Album List';
   albums: any[] = [
     {
-      "Title": "ttl",
-      "Sales": 1000,
-      "Mood": "Happy",
-      "Score(Put of 10)": 8.6,
-      "Votes": 3
+      "title": "Let's Dance",
+      "sales": 1000,
+      "mood": "Happy",
+      "score": 8.6,
+      "votes": 3
     },
     {
-      "Title": "ttl2",
-      "Sales": 10001,
-      "Mood": "Pensive",
-      "Score(Put of 10)": 6.3,
-      "Votes": 4
+      "title": "Heroes",
+      "sales": 10001,
+      "mood": "Pensive",
+      "score": 6.3,
+      "votes": 4
     }
-      ];
+  ];
 }

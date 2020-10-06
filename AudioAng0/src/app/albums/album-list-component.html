@@ -21,23 +21,32 @@
     <div class='table-responsive'>
       <table class='table'
              *ngIf='albums && albums.length'>
+              <!-- *=built in (structural in this case) directive, taken from BrowserModule imported into app.module.ts -->
         <thead>
           <tr>
             <th>
               <button class='btn btn-primary'>
-                 Show Image
+                Show Image
               </button>
             </th>
             <th>Title</th>
             <th>Sales</th>
             <th>Mood</th>
-            <th>Score(Put of 10)</th>
-            <th>Votes</th>
+            <th>Score(Out of 10)</th>
+            <th>Votes(Out of 5 stars)</th>
           </tr>
         </thead>
         <tbody>
+          <tr *ngFor="let album of albums">
+            <td></td>
+            <td>{{album.title}}</td>
+            <td>{{album.sales}}</td>
+            <td>{{album.mood}}</td>
+            <td>{{album.score}}</td>
+            <td>{{album.votes}}</td>
+          </tr>
         </tbody>
-        </table>
+      </table>
 
     </div>
 
