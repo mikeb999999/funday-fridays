@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { IAlbum } from './album';
 
 @Component({
   selector: 'aa-albums',
-  templateUrl: './album-list-component.html'
+  templateUrl: './album-list-component.html',
+  styleUrls: ['./album-list.component.css']
 })
 // There must be an import & a declaration for this class in app.module.ts 
 export class AlbumListComponent {
@@ -11,7 +13,7 @@ export class AlbumListComponent {
   imageMargin = 2;
   showImage = false;
   listFilter = 'an';    // Use single quotes !!!!!
-  albums: any[] = [
+  albums: IAlbum[] = [
     {
       "title": "Let's Dance",
       "yearReleased": 1983,
