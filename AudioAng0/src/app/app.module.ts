@@ -6,16 +6,21 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
+import { FormsModule } from '@angular/forms';
+
 import { AlbumListComponent } from './albums/album-list-component';
 
 //The @NgModule decorator - contains arrays - defines this class as an angular module
 @NgModule({
+  // declarations = our directives, components and pipes
   declarations: [
     AppComponent,  /* all external components */
-    AlbumListComponent /* 'aa-albums' is contained in Angular component, part of this module.. */
+    AlbumListComponent /* 'aa-albums' is contained in Angular component, part of this module.. */ 
   ],
+  // imports are for other sources (e.g. ng/3rd parties) directives, components and pipes
   imports: [
-    BrowserModule   /*s.t. app runs correctly in the browser */
+    BrowserModule,  /*s.t. app runs correctly in the browser */
+    FormsModule     /* for ngModule etc. */
   ],
   providers: [],
   bootstrap: [ AppComponent  /* the starting componen for the app.*/ /*contains the directive used in the html file */ ]

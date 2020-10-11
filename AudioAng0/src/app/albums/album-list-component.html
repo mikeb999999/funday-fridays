@@ -8,41 +8,53 @@
     <div class='row'>
       <div class='col-md-2'>Filter by:</div>
       <div class='col-md-4'>
-        <input type='text' />
+        <input type='text'
+               [(ngModel)]='listFilter' />
       </div>
     </div>
     <div class='row'>
-       <!--  *ngIf='listFilter'> -->
+      <!--[(ngModel)] is two-way binding -->
+      <!--  *ngIf='listFilter'> -->
       <div class='col-md-6'>
-        <h4>Filtered by: </h4> 
+        <h4>Filtered by: {{listFilter}}</h4>
       </div>
     </div>
 
     <div class='table-responsive'>
       <table class='table'
              *ngIf='albums && albums.length'>
-              <!-- *=built in (structural in this case) directive, taken from BrowserModule imported into app.module.ts -->
+        <!-- *=built-in <structural in this case> directive, taken from BrowserModule imported into app.module.ts -->
         <thead>
           <tr>
             <th>
-              <button class='btn btn-primary'>
-                Show Image
+              <!-- (event binding) : standard events documentation https://developer.mozilla.org/en-US/docs/web/events -->
+              <!-- Also using JS condition inside interpolation -->
+              <button class='btn btn-primary'
+                      (click)=toggleImage()>
+                {{showImage? 'Hide' :'Show'}} Image
               </button>
             </th>
             <th>Title</th>
-            <th>Sales</th>
+            <th>Year Released</th>
             <th>Mood</th>
             <th>Score(Out of 10)</th>
-            <th>Votes(Out of 5 stars)</th>
+            <th>Votes(Stars)</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let album of albums">
-            <td></td>
+            <td>
+              <!-- [property binding] -->
+              <img *ngIf="showImage"
+                   [src]='album.imageUrl'
+                   [title]='album.title | uppercase'
+                   [style.width.px]='imageWidth'
+                   [style.margin.px]='imageMargin' />
+            </td>
             <td>{{album.title}}</td>
-            <td>{{album.sales}}</td>
+            <td>{{album.yearReleased}}</td>
             <td>{{album.mood}}</td>
-            <td>{{album.score}}</td>
+            <td>{{album.score | currency:'USD':'symbol':'1.2-2' }}</td>
             <td>{{album.votes}}</td>
           </tr>
         </tbody>
