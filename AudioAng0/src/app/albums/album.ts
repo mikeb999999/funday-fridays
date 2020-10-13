@@ -5,4 +5,5 @@ export interface IAlbum {
   score: number;
   votes: number;
   imageUrl: string;
+  musicBrainzID: string;
 }
