@@ -1,0 +1,66 @@
+<div class='card'>
+  <!-- using Twitter Bootstrap style classes here & now -->
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
+
+  <div class='card-body'>
+    <div class='row'>
+      <div class='col-md-2'>Filter by:</div>
+      <div class='col-md-4'>
+        <input type='text'
+               [(ngModel)]='listFilter' />
+      </div>
+    </div>
+    <div class='row'>
+      <!--[(ngModel)] is two-way binding -->
+      <!--  *ngIf='listFilter'> -->
+      <div class='col-md-6'>
+        <h4>Filtered by: {{listFilter}}</h4>
+      </div>
+    </div>
+
+    <div class='table-responsive'>
+      <table class='table'
+             *ngIf='albums && albums.length'>
+        <!-- *=built-in <structural in this case> directive, taken from BrowserModule imported into app.module.ts -->
+        <thead>
+          <tr>
+            <th>
+              <!-- (event binding) : standard events documentation https://developer.mozilla.org/en-US/docs/web/events -->
+              <!-- Also using JS condition inside interpolation -->
+              <button class='btn btn-primary'
+                      (click)=toggleImage()>
+                {{showImage? 'Hide' :'Show'}} Image
+              </button>
+            </th>
+            <th>Title</th>
+            <th>Year</th>
+            <th>Mood</th>
+            <th>Score%</th>
+            <th>Votes(Stars)</th>
+            <th>ID</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let album of filteredAlbums">
+            <td>
+              <!-- [property binding] -->
+              <img *ngIf="showImage"
+                   [src]='album.imageUrl'
+                   [title]='album.title | uppercase'
+                   [style.width.px]='imageWidth'
+                   [style.margin.px]='imageMargin' />
+            </td>
+            <td>{{album.title}}</td>
+            <td>{{album.yearReleased}}</td>
+            <td>{{album.mood}}</td>
+            <td>{{album.score | times:'.1' | percent:'1.0-0' }}</td>
+            <td>{{album.votes}}</td>
+            <td>{{album.musicBrainzID | slice:5:12 | uppercase | convertToSpaces:'-'}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
