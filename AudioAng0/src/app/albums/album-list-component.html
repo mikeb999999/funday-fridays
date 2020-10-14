@@ -57,7 +57,8 @@
             <td>{{album.mood}}</td>
             <td>{{album.score | times:'.1' | percent:'1.0-0' }}</td>
             <td>
-              <aa-star [rating]="album.score | times:'.5'">
+              <aa-star [rating]="album.score | times:'.5'"
+                       (ratingClicked)="onRatingClicked($event)">
               </aa-star>
             </td>
             <td>{{album.musicBrainzID | slice:5:12 | uppercase | convertToSpaces:'-'}}</td>

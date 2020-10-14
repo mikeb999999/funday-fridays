@@ -55,6 +55,10 @@ export class AlbumListComponent implements OnInit,OnChanges,OnDestroy{
     this.listFilter = 'an';
   }
 
+  onRatingClicked(message: string): void {
+    this.pageTitle = 'Product List: ' + message;
+  }
+
   performFilter(filterBy: string): IAlbum[] {
     filterBy = filterBy.toLocaleLowerCase();
     return this.albums.filter((album: IAlbum) =>
