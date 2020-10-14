@@ -38,7 +38,7 @@
             <th>Year</th>
             <th>Mood</th>
             <th>Score%</th>
-            <th>Votes(Stars)</th>
+            <th>Score/5*</th>
             <th>ID</th>
           </tr>
         </thead>
@@ -56,7 +56,10 @@
             <td>{{album.yearReleased}}</td>
             <td>{{album.mood}}</td>
             <td>{{album.score | times:'.1' | percent:'1.0-0' }}</td>
-            <td>{{album.votes}}</td>
+            <td>
+              <aa-star [rating]="album.score | times:'.5'">
+              </aa-star>
+            </td>
             <td>{{album.musicBrainzID | slice:5:12 | uppercase | convertToSpaces:'-'}}</td>
           </tr>
         </tbody>
