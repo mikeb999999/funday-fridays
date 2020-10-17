@@ -36,7 +36,7 @@ export class AlbumListComponent implements OnInit{
   performFilter(filterBy: string): IAlbum[] {
     filterBy = filterBy.toLocaleLowerCase();
     return this.albums.filter((album: IAlbum) =>
-      album.strTitle.toLocaleLowerCase().indexOf(filterBy) !== -1);
+      album.strAlbum.toLocaleLowerCase().indexOf(filterBy) !== -1);
   }
 
   toggleImage(): void {

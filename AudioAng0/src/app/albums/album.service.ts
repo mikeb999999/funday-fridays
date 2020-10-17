@@ -14,6 +14,8 @@ export class AlbumService {
                                                   // Added to Assets array in angular.json
                                                   // Simply point it to the real URl!
   //private albumUrl = 'https://www.theaudiodb.com/api/v1/json/1/searchalbum.php?s=david_bowie'
+  //private albumUrl = 'https://www.theaudiodb.com/api/v1/json/1/searchalbum.php?s=daft_punk&a=Homework'
+  //private albumUrl = 'api/albums/albums1.json';   // Need to deal with the extra albums array level
 
   constructor(private http: HttpClient) { }
 
