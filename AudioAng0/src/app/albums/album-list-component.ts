@@ -13,6 +13,7 @@ export class AlbumListComponent implements OnInit{
   imageWidth: number = 50;
   imageMargin = 2;
   showImage = false;
+  errorMessage: string;
 
   _listFilter: string;
   get listFilter(): string {
@@ -35,7 +36,7 @@ export class AlbumListComponent implements OnInit{
   performFilter(filterBy: string): IAlbum[] {
     filterBy = filterBy.toLocaleLowerCase();
     return this.albums.filter((album: IAlbum) =>
-      album.title.toLocaleLowerCase().indexOf(filterBy) !== -1);
+      album.strTitle.toLocaleLowerCase().indexOf(filterBy) !== -1);
   }
 
   toggleImage(): void {
@@ -43,8 +44,13 @@ export class AlbumListComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.albums = this.albumService.getAlbums();
-    this.filteredAlbums = this.albums;;
+    this.albumService.getAlbums().subscribe({
+      next: albums => {
+        this.albums = albums;
+        this.filteredAlbums = this.albums;
+      },
+      error: err => this.errorMessage = err
+    });
   }
 
 }

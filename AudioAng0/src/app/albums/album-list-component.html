@@ -48,11 +48,11 @@
               <!-- [property binding] -->
               <img *ngIf="showImage"
                    [src]='album.imageUrl'
-                   [title]='album.title | uppercase'
+                   [title]='album.strTitle | uppercase'
                    [style.width.px]='imageWidth'
                    [style.margin.px]='imageMargin' />
             </td>
-            <td>{{album.title}}</td>
+            <td>{{album.strTitle}}</td>
             <td>{{album.yearReleased}}</td>
             <td>{{album.mood}}</td>
             <td>{{album.score | times:'.1' | percent:'1.0-0' }}</td>

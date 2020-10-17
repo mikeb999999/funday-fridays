@@ -1,5 +1,5 @@
 export interface IAlbum {
-  title: string;
+  strTitle: string;
   yearReleased: number;
   mood: string;
   score: number;
