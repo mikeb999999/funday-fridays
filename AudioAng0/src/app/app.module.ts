@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { AlbumListComponent } from './albums/album-list-component';
@@ -28,7 +29,14 @@ import { WelcomeComponent } from './home/welcome.component';
   imports: [
     BrowserModule,  /*s.t. app runs correctly in the browser */
     FormsModule     /* for ngModule etc. */
-    ,HttpClientModule
+    , HttpClientModule
+    , RouterModule.forRoot([
+      { path: 'albums', component: AlbumListComponent },
+      { path: 'albums/:id', component: AlbumDetailComponent },
+      { path: 'welcome', component: WelcomeComponent },
+      { path: '', redirectTo: 'welcome', pathMatch: 'full' },
+      { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
+    ])
   ],
   providers: [],
   bootstrap: [ AppComponent  /* the starting componen for the app.*/ /*contains the directive used in the html file */ ]

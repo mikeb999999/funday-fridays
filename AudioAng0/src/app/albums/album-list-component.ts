@@ -1,14 +1,14 @@
-import { Component, OnInit,OnChanges,OnDestroy } from '@angular/core';
+import { Component, OnInit, OnChanges, OnDestroy } from '@angular/core';
 import { IAlbum } from './album';
 import { AlbumService } from './album.service';
 
 @Component({
-  selector: 'aa-albums',
+  //  selector: 'aa-albums',  //selector no longer needed bc we are now routing
   templateUrl: './album-list-component.html',
   styleUrls: ['./album-list.component.css']
 })
 // There must be an import & a declaration for this class in app.module.ts 
-export class AlbumListComponent implements OnInit{
+export class AlbumListComponent implements OnInit {
   pageTitle = 'Album List';  // Use single quotes !!!!!
   imageWidth: number = 50;
   imageMargin = 2;
@@ -27,7 +27,7 @@ export class AlbumListComponent implements OnInit{
   filteredAlbums: IAlbum[];
   albums: IAlbum[] = [];
 
-  constructor(private albumService: AlbumService) {}
+  constructor(private albumService: AlbumService) { }
 
   onRatingClicked(message: string): void {
     this.pageTitle = 'Product List: ' + message;
