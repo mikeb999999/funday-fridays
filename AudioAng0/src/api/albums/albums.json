@@ -1,0 +1,41 @@
+[
+  {
+    "strAlbum": "Let's Dance",
+    "xtraStuff": "Extra Stuff",
+    "xtraStuff2": "Extra Stuff",
+    "xtraStuff3": "Extra Stuff",
+    "xtraStuff4": "Extra Stuff",
+    "intYearReleased": 1983,
+    "strMood": "Happy",
+    "intScore": 8.6,
+    "strAlbumThumb": "assets/images/lets-dance-4e3005ad5f70c.jpg",
+    "strMusicBrainzID": "056e4f3e-d505"
+  },
+  {
+    "strAlbum": "Heroes",
+    "xtraStuff": "Extra Stuff",
+    "intYearReleased": 1977,
+    "strMood": "Pensive",
+    "intScore": 6.3,
+    "strAlbumThumb": "assets/images/u3901-R-4753929-1413757634-2373.jpeg.jpg.jpg",
+    "strMusicBrainzID": "b585e56e-69cb"
+  },
+  {
+    "strAlbum": "The Rise and Fall of Ziggy Stardust and the Spiders From Mars",
+    "xtraStuff": "Extra Stuff",
+    "intYearReleased": 1972,
+    "strMood": "Weird",
+    "intScore": 9.7,
+    "strAlbumThumb": "assets/images/utttwy1569246297.jpg",
+    "strMusicBrainzID": "bc49de56-46c7"
+  },
+  {
+    "strAlbum": "Diamond Dogs",
+    "xtraStuff": "Extra Stuff",
+    "intYearReleased": 1974,
+    "strMood": "Weird",
+    "intScore": 8,
+    "strAlbumThumb": "https://upload.wikimedia.org/wikipedia/en/1/1f/Diamond_dogs.jpg",
+    "strMusicBrainzID": "0dc4835d-b21a-3612-bac6-ab1e782a1396"
+  }
+]

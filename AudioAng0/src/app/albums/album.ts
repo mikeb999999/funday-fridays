@@ -1,9 +1,8 @@
 export interface IAlbum {
-  title: string;
-  yearReleased: number;
-  mood: string;
-  score: number;
-  votes: number;
-  imageUrl: string;
-  musicBrainzID: string;
+  strAlbum: string;
+  intYearReleased: number;
+  strMood: string;
+  intScore: number;
+  strAlbumThumb: string;
+  strMusicBrainzID: string;
 }

@@ -38,7 +38,7 @@
             <th>Year</th>
             <th>Mood</th>
             <th>Score%</th>
-            <th>Votes(Stars)</th>
+            <th>Score/5*</th>
             <th>ID</th>
           </tr>
         </thead>
@@ -47,17 +47,21 @@
             <td>
               <!-- [property binding] -->
               <img *ngIf="showImage"
-                   [src]='album.imageUrl'
-                   [title]='album.title | uppercase'
+                   [src]='album.strAlbumThumb'
+                   [title]='album.strAlbum | uppercase'
                    [style.width.px]='imageWidth'
                    [style.margin.px]='imageMargin' />
             </td>
-            <td>{{album.title}}</td>
-            <td>{{album.yearReleased}}</td>
-            <td>{{album.mood}}</td>
-            <td>{{album.score | times:'.1' | percent:'1.0-0' }}</td>
-            <td>{{album.votes}}</td>
-            <td>{{album.musicBrainzID | slice:5:12 | uppercase | convertToSpaces:'-'}}</td>
+            <td>{{album.strAlbum}}</td>
+            <td>{{album.intYearReleased}}</td>
+            <td>{{album.strMood}}</td>
+            <td>{{album.intScore | times:'.1' | percent:'1.0-0' }}</td>
+            <td>
+              <aa-star [rating]="album.intScore | times:'.5'"
+                       (ratingClicked)="onRatingClicked($event)">
+              </aa-star>
+            </td>
+            <td>{{album.strMusicBrainzID | slice:5:12 | uppercase | convertToSpaces:'-'}}</td>
           </tr>
         </tbody>
       </table>
