@@ -13,6 +13,7 @@ import { TimesPipe } from './shared/times.pipe';
 import { StarComponent } from './shared/star.component';
 import { AlbumDetailComponent } from './albums/album-detail.component';
 import { WelcomeComponent } from './home/welcome.component';
+import { AlbumDetailGuard } from './albums/album-detail.guard';
 
 //The @NgModule decorator - contains arrays - defines this class as an angular module
 @NgModule({
@@ -23,7 +24,7 @@ import { WelcomeComponent } from './home/welcome.component';
     ConvertToSpacesPipe, TimesPipe,
     StarComponent,
     AlbumDetailComponent
-    ,WelcomeComponent
+    , WelcomeComponent
   ],
   // imports are for other sources (e.g. ng/3rd parties) directives, components and pipes
   imports: [
@@ -32,14 +33,18 @@ import { WelcomeComponent } from './home/welcome.component';
     , HttpClientModule
     , RouterModule.forRoot([
       { path: 'albums', component: AlbumListComponent },
-      { path: 'albums/:id', component: AlbumDetailComponent },
+      {
+        path: 'albums/:id',
+        canActivate: [AlbumDetailGuard],
+        component: AlbumDetailComponent
+      },
       { path: 'welcome', component: WelcomeComponent },
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },
       { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
     ])
   ],
   providers: [],
-  bootstrap: [ AppComponent  /* the starting componen for the app.*/ /*contains the directive used in the html file */ ]
+  bootstrap: [AppComponent  /* the starting componen for the app.*/ /*contains the directive used in the html file */]
 })
 // The class, obviously
 export class AppModule { }
