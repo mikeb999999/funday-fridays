@@ -52,7 +52,11 @@
                    [style.width.px]='imageWidth'
                    [style.margin.px]='imageMargin' />
             </td>
-            <td>{{album.strAlbum}}</td>
+            <td>
+              <a [routerLink]="['/albums', album.strMusicBrainzID]">
+                {{album.strAlbum}}
+              </a>
+            </td>
             <td>{{album.intYearReleased}}</td>
             <td>{{album.strMood}}</td>
             <td>{{album.intScore | times:'.1' | percent:'1.0-0' }}</td>
