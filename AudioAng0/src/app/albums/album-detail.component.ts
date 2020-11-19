@@ -2,36 +2,40 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { IAlbum } from './album';
+import { AlbumService } from './album.service';
 
 @Component({
- // selector: 'app-album-detail',   // is only needed if nested as part of another component - doesn't apply to routing
+  // selector: 'app-album-detail',   // is only needed if nested as part of another component - doesn't apply to routing
   templateUrl: './album-detail.component.html',
   styleUrls: ['./album-detail.component.sass']
 })
 export class AlbumDetailComponent implements OnInit {
   pageTitle: string = 'Album Detail';
-  album: IAlbum;
+  errorMessage = '';
+  album: IAlbum | undefined;
 
   constructor(private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    private albumService: AlbumService) { }
 
   ngOnInit(): void {
-    let id = +this.route.snapshot.paramMap.get('id');   // N.B.  preceded with + for turn into number, Let new in ES2015 for block scoped var
-    this.pageTitle += `: ${id}`;
-    this.album = {
-      "idAlbum": id,
-      "strAlbum": "The Rise and Fall of Ziggy Stardust and the Spiders From Mars",
-      "intYearReleased": 1972,
-      "strMood": "Weird",
-      "intScore": 9.7,
-      "strAlbumThumb": "assets/images/utttwy1569246297.jpg",
-      "strMusicBrainzID": "laksdlkjfahsdf"
-    };
+    const param = this.route.snapshot.paramMap.get('id');
+    if (param) {
+      const id = +param;
+      this.getAlbum(id);
+    }
+  }
+
+  getAlbum(id: number): void {
+    this.albumService.getAlbum(id).subscribe({
+      next: album => this.album = album,
+      error: err => this.errorMessage = err
+    });
   }
 
   // Routing with code - e.g. do it when saving
   onBack(): void {
-    this.router.navigate(['/albums']);   
+    this.router.navigate(['/albums']);
   }
 
 
