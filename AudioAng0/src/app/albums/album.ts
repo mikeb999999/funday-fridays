@@ -1,4 +1,5 @@
 export interface IAlbum {
+  idAlbum:number;
   strAlbum: string;
   intYearReleased: number;
   strMood: string;

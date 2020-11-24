@@ -1,5 +1,6 @@
 [
   {
+    "idAlbum": 123,
     "strAlbum": "Let's Dance",
     "xtraStuff": "Extra Stuff",
     "xtraStuff2": "Extra Stuff",
@@ -12,6 +13,7 @@
     "strMusicBrainzID": "056e4f3e-d505"
   },
   {
+    "idAlbum": 456,
     "strAlbum": "Heroes",
     "xtraStuff": "Extra Stuff",
     "intYearReleased": 1977,
@@ -21,6 +23,7 @@
     "strMusicBrainzID": "b585e56e-69cb"
   },
   {
+    "idAlbum": 789,
     "strAlbum": "The Rise and Fall of Ziggy Stardust and the Spiders From Mars",
     "xtraStuff": "Extra Stuff",
     "intYearReleased": 1972,
@@ -30,6 +33,7 @@
     "strMusicBrainzID": "bc49de56-46c7"
   },
   {
+    "idAlbum": 12,
     "strAlbum": "Diamond Dogs",
     "xtraStuff": "Extra Stuff",
     "intYearReleased": 1974,
