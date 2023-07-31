@@ -1,7 +1,5 @@
-//import { applySourceSpanToStatementIfNeeded } from '@angular/compiler/src/output/output_ast';
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
-//import { nextTick } from 'process';
 import { Observable } from 'rxjs';
 
 @Injectable({
