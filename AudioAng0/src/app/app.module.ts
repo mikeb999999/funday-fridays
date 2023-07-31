@@ -32,16 +32,16 @@ import { AlbumDetailGuard } from './albums/album-detail.guard';
     FormsModule     /* for ngModule etc. */
     , HttpClientModule
     , RouterModule.forRoot([
-      { path: 'albums', component: AlbumListComponent },
-      {
+    { path: 'albums', component: AlbumListComponent },
+    {
         path: 'albums/:id',
         canActivate: [AlbumDetailGuard],
         component: AlbumDetailComponent
-      },
-      { path: 'welcome', component: WelcomeComponent },
-      { path: '', redirectTo: 'welcome', pathMatch: 'full' },
-      { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
-    ])
+    },
+    { path: 'welcome', component: WelcomeComponent },
+    { path: '', redirectTo: 'welcome', pathMatch: 'full' },
+    { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
+], { relativeLinkResolution: 'legacy' })
   ],
   providers: [],
   bootstrap: [AppComponent  /* the starting componen for the app.*/ /*contains the directive used in the html file */]
