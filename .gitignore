@@ -348,3 +348,5 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+/AudioAng0/.angular/cache/13.3.11/angular-webpack/da32cf1dcb3bcd8ead66b13d2c96c8443a81b013/*.pack
+/AudioAng0/.angular/cache/13.3.11/babel-webpack/*.json
